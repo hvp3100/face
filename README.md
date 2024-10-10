@@ -1,6 +1,6 @@
 
 <!-- # Emoface -->
-<h1 align="center">Exploring Generalized Face Encoding and Digital Biomarkers Using Visual Emotion Signals for Diagnosing Disorders in Adolescents</h1>
+<h1 align="left">Emoface</h1>
 <p align="center">
 
 ## Installation 
@@ -16,7 +16,7 @@
 <!-- git clone --recurse-submodules ... -->
 <!-- ``` -->
 
-2) The relevant package versions are provided in the file `requirements38.txt`.
+2) The relevant package versions are provided in the file `requirements.txt`.
 
 
 
@@ -33,7 +33,7 @@ bash pull_submodules.sh
 ```
 
 
-2) Set up a conda environment with one of the provided conda files. I recommend using `conda-environment_py38_cu11_ubuntu.yml`.  
+2) Set up a conda environment with one of the provided conda files. We recommend using `conda-environment_py38_cu11_ubuntu.yml`.  
 <!-- This is the one I use for the cluster `conda-environment_py36_cu11_cluster.yml`. The differences between tehse two are probably not important but I include both for completeness.  -->
 
 
@@ -78,7 +78,7 @@ conda activate work38_cu11
 
 
 ## Structure 
-1) [Data_processing](../Data_processing)
+1) Data_processing
 
 
 
@@ -93,7 +93,7 @@ Finally, `face_detection.py` is run to filter the data, discarding frames where 
 
 
 
-2) [Diagnosis_of_disease](../diagnosis_of_disease)
+2) Diagnosis_of_disease
 
 
 
@@ -102,7 +102,7 @@ During this stage, the model simultaneously reads RGB images and pre-labeled fil
 The data is pre-split into training and validation sets in a 7:2 ratio. 
 
 
-The training is performed using the weight file [epoch70.pth](Diagnosis_of_disease/epoch70.pth).
+The training is performed using the weight file [diagnosis_weight.pth](https://drive.google.com/file/d/12qmNE0gCcpflSTSmP4iGRqkP-lv0ahfn/view).
 
 
 
@@ -115,7 +115,7 @@ The original code only support resnet18.  In this code, Resnet18 is added to bac
 
 
 
-3) [Digital_target_statistics](Digital_target_statistics)
+3) Digital_target_statistics
 
 This portion of the data enters the digital target analysis stage:
 
@@ -126,7 +126,7 @@ The script `Gradient_computation.py` computes the gradient values of facial key 
 Additionally, `Normalization.py` normalizes the numerical data and ranks the key points based on their significance.
 
 
-4) [Facial_keypoint_detection](../Facial_keypoint_detection)
+4) Facial_keypoint_detection
 
 The `shape_predictor_68_face_landmarks.dat` file is a pre-trained model used for facial landmark detection. 
 It provides 68 specific landmark points on a face, which correspond to various facial features such as the eyes, eyebrows, nose, mouth, and jawline. 
@@ -136,7 +136,7 @@ The `Facial_keypoint_detection.py` script performs several critical steps for fa
 Initially, it loads the pre-trained model from the `shape_predictor_68_face_landmarks.dat` file, which is designed to identify 68 specific facial landmarks. 
 The script then reads the input image and applies face detection algorithms to identify facial regions. Within these regions, the model is used to accurately locate the 68 facial key points. The detected landmarks are subsequently visualized on the image for inspection or further analysis. 
 
-5) [Heatmap](../heatmap)
+5) Heatmap
 
 The `heatmap.py` code generates an attention heatmap based on a Gaussian distribution and overlays it on the input image, which is then saved as an image file. 
 The central region of the attention heatmap is highlighted with brighter colors, indicating higher attention values in that area.
@@ -145,7 +145,7 @@ The `visualize_the_heat_map_statistics.py` code extracts a specified color range
 This new image has a white background and retains only the regions that fall within the specified color range. The resulting image is saved to a file and displayed using matplotlib.
 
 
-6) [Standardized_digital_face](Standardized_digital_face)
+6) Standardized_digital_face
 
 The file `Rough_reconstruction.py` implements the rough reconstruction of digital faces. The code for fine-tuning the model and performing detailed digital face reconstruction is as follows:
 
