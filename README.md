@@ -3,6 +3,9 @@
 <h1 align="">Emoface</h1>
 <p align="center">
 
+## Abstract
+Affective disorders, including Major Depressive Disorder (MDD) and Bipolar Disorder (BPD), exhibit significant mood abnormalities, making rapid diagnosis essential for social stability and healthcare efficiency. Traditional diagnostic solutions, including medical history collection and psychological assessments, often struggle to differentiate their similar clinical presentations, leading to time-consuming, laborious, and a high rate of misdiagnosis. Here, we propose Emoface, an AI-assisted diagnostic model that reads the emotional activities of faces in disorders. By analyzing videos from 353 participants exposed to various emotional stimuli, Emoface identified unique facial digital biomarkers distinguishing BPD from MDD. Based on this, Emoface helped develop the first digital facial mapping for clinical and teaching use. In clinical practice with 120 patients, Emoface achieved precise diagnosis based on various facial visual signals, with accuracy rates of 95.29% for BPD and 87.05% for MDD, offering a reliable face-based AI solution in a new era affective disorder.
+
 ## Installation 
 
 ### Dependencies
