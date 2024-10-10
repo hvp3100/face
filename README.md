@@ -1,6 +1,6 @@
 
 <!-- # Emoface -->
-<h1 align="left">Emoface</h1>
+<h1 align="">Emoface</h1>
 <p align="center">
 
 ## Installation 
@@ -33,12 +33,11 @@ bash pull_submodules.sh
 ```
 
 
-2) Set up a conda environment with one of the provided conda files. We recommend using `conda-environment_py38_cu11_ubuntu.yml`.  
-<!-- This is the one I use for the cluster `conda-environment_py36_cu11_cluster.yml`. The differences between tehse two are probably not important but I include both for completeness.  -->
+2) Set up a conda environment with one of the provided conda files.  
 
 
 ```bash
-conda env create python=3.8 --file conda-environment_py38_cu11_ubuntu.yml
+conda env create python=3.8
 ```
 ```bash
 pip install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch
@@ -55,7 +54,7 @@ conda activate work38_cu11
 pip install Cython==0.29.14
 ```
 
-4) Install `gdl` using pip install. I recommend using the `-e` option and I have not tested otherwise. 
+4) Install `gdl` using pip install. We recommend using the `-e` option and we have not tested otherwise. 
 
 ```bash
 pip install -e .
@@ -93,7 +92,7 @@ Finally, `face_detection.py` is run to filter the data, discarding frames where 
 
 
 
-2) Diagnosis_of_disease
+2) Diagnosis_of_disease]
 
 
 
@@ -128,12 +127,12 @@ Additionally, `Normalization.py` normalizes the numerical data and ranks the key
 
 4) Facial_keypoint_detection
 
-The `shape_predictor_68_face_landmarks.dat` file is a pre-trained model used for facial landmark detection. 
+The `face_lmk.dat` file is a pre-trained model used for facial landmark detection, which is available at [here](https://drive.google.com/file/d/1AZEuAMsg3QWhbNF-7-JsfaU3TcvxAmyX/view?usp=sharing).
 It provides 68 specific landmark points on a face, which correspond to various facial features such as the eyes, eyebrows, nose, mouth, and jawline. 
 These landmarks are commonly used in tasks such as face alignment, facial expression analysis, and face recognition, enabling precise localization of facial features within an image.
 
 The `Facial_keypoint_detection.py` script performs several critical steps for facial landmark detection. 
-Initially, it loads the pre-trained model from the `shape_predictor_68_face_landmarks.dat` file, which is designed to identify 68 specific facial landmarks. 
+Initially, it loads the pre-trained model from the `face_lmk.dat` file, which is designed to identify 68 specific facial landmarks. 
 The script then reads the input image and applies face detection algorithms to identify facial regions. Within these regions, the model is used to accurately locate the 68 facial key points. The detected landmarks are subsequently visualized on the image for inspection or further analysis. 
 
 5) Heatmap
